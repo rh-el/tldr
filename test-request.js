@@ -1,6 +1,4 @@
-
 const apiKey = ''; // Remplacez par votre clé API OpenAI
-
 
 const url = 'https://api.openai.com/v1/chat/completions';
 const requestedFormat = "{'questions': [{'question1': 'question1', 'choices1': [ 'choice1', 'choice2', 'choice3'], 'answer1': 'answer1'}]}"
@@ -33,11 +31,10 @@ async function getAIResponse() {
           },
           body: JSON.stringify(requestBody)
         });
-    
         const data = await response.json();
         console.log(data.choices[0].message.content); // Affiche la réponse de l'assistant
-      } catch (error) {
+    } catch (error) {
         console.error('Error:', error);
-      }
     }
+}
     
