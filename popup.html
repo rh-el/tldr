@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Learning App</h1>
+        <button id="summaryButton">Show Summary</button>
+        <div id="summarySection" class="hidden">
+            <h2>Summary</h2>
+            <p id="summaryText">This is a summary of the webpage.</p>
+            <button id="quizzButton">Take Quiz</button>
+        </div>
+        <div id="quizzSection" class="hidden">
+            <h2>Quiz</h2>
+            <form id="quizzForm">
+                <div class="quizz-item">
+                    <p>Question 1: What is the main topic of the webpage?</p>
+                    <input type="radio" name="question1" value="option1"> Option 1<br>
+                    <input type="radio" name="question1" value="option2"> Option 2<br>
+                    <input type="radio" name="question1" value="option3"> Option 3<br>
+                </div>
+                <div class="quizz-item">
+                    <p>Question 2: How many sections does the webpage have?</p>
+                    <input type="radio" name="question2" value="option1"> Option 1<br>
+                    <input type="radio" name="question2" value="option2"> Option 2<br>
+                    <input type="radio" name="question2" value="option3"> Option 3<br>
+                </div>
+                <button type="submit">Submit Quizz</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
