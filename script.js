@@ -1,8 +1,17 @@
+const getSelectedText = () => {
+    const selection = window.getSelection();
+    const text = selection.toString();
+    console.log("in getselectedtext: " + text)
+}
 
 
-document.getElementById("summary-button").addEventListener("click", function() {
+document.getElementById("summary-button").addEventListener("click", function(clickData) {
     // console.log('coucou')
     // getAIResponse();
+    getSelectedText()
+    const selectedText = clickData.selectionText  
+    
+
     document.getElementById("summary-section").classList.remove("hidden");
     document.getElementById("summary-button").classList.add("hidden");
 });

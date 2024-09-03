@@ -33,6 +33,7 @@ async function getAIResponse() {
         });
         const data = await response.json();
         console.log(data.choices[0].message.content); // Affiche la réponse de l'assistant
+        return data.choices[0].message.content
     } catch (error) {
         console.error('Error:', error);
     }
