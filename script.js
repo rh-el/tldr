@@ -1,13 +1,7 @@
-const getSelectedText = () => {
-    const selection = window.getSelection();
-    const text = selection.toString();
-    console.log("in getselectedtext: " + text)
-}
-
 
 document.getElementById("summary-button").addEventListener("click", (clickData) => {
     // getAIResponse();
-    getSelectedText()
+    // getSelectedText()
     const selectedText = clickData.selectionText
     
 
@@ -88,3 +82,6 @@ function createQuiz (response) {
         quizForm.appendChild(quizItem);
     }
 }
+document.addEventListener("selectionchange", () => {
+    // getSelectedText();
+})

@@ -10,7 +10,7 @@
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'injectContentScript') {
-        console.log('in background');
+        console.log('in background if '+  message);
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             chrome.scripting.executeScript({
                 target: {tabId: tabs[0].id},
@@ -18,6 +18,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             })
         })
     }
+    console.log('in background not if ' + message)
 })
 
 
@@ -33,5 +34,6 @@ chrome.contextMenus.onClicked.addListener((clickData) =>{
     if (clickData.menuItemId == "summarize" && clickData.selectionText) {
         const selectedText = clickData.selectionText
         console.log(selectedText)
+        summarizeText = selectedText
     }
 })
