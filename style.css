@@ -73,6 +73,16 @@ button:hover {
     margin: 25px 0;
 }
 
+.quiz-question {
+    font-weight: 900;
+}
+
+.quiz-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
 form button[type="submit"] {
     background-color: #28a745;
 }
