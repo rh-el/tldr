@@ -1,10 +1,6 @@
 
 document.getElementById("summary-button").addEventListener("click", (clickData) => {
     // getAIResponse();
-    // getSelectedText()
-    const selectedText = clickData.selectionText
-    
-
     document.getElementById("summary-section").classList.remove("hidden");
     document.getElementById("summary-button").classList.add("hidden");
 });
