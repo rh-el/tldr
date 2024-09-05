@@ -23,9 +23,10 @@ async function fetchAPI() {
       chrome.scripting.executeScript({target: {tabId: tabs[0].id}, function: () => extractContents(document)},
         async (results) => {
             // console.log(results[0].result);                        
-            // aiResponse = await getAIResponse(results[0].result)
-            createSummary(responseTest)
-            // console.log(aiResponse)
+            const aiResponse = await getAIResponse(results[0].result)
+            aiResponseJSON = JSON.parse(aiResponse);
+            console.log(aiResponseJSON)
+            createSummary(aiResponseJSON)
         }
       );
     });

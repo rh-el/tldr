@@ -20,7 +20,38 @@ const responseTest = {
     "summary": "La méthode reduce() en JavaScript permet de réduire une liste de valeurs à une seule valeur à l'aide d'une fonction qui traite chaque élément du tableau. Cette fonction callback prend quatre arguments : la valeur accumulée, la valeur courante, l'index de l'élément et le tableau. Si une valeur initiale n'est pas fournie, le premier élément du tableau sera utilisé comme accumulateur, et la boucle commencera à l'indice 1. La méthode ignore les éléments vides du tableau et peut générer une erreur lorsqu'elle est appelée sur un tableau vide sans valeur initiale. La méthode reduce() est largement supportée dans les navigateurs depuis 2015."
 }
 
-
+const newResponse = {
+    "questions": [
+        {
+            "question0": "Que retourne la méthode Element.getElementsByTagName() ?",
+            "choices0": [
+                "Un tableau d'éléments DOM",
+                "Une HTMLCollection",
+                "Un NodeList"
+            ],
+            "answer0": "Une HTMLCollection"
+        },
+        {
+            "question1": "Que représente la chaîne spéciale '*' pour le paramètre tagName ?",
+            "choices1": [
+                "Tous les éléments possibles",
+                "Les éléments avec une classe spécifique",
+                "Les éléments avec un ID spécifique"
+            ],
+            "answer1": "Tous les éléments possibles"
+        },
+        {
+            "question2": "La méthode getElementsByTagName est-elle insensible à la casse lorsqu'elle est utilisée sur un document HTML ?",
+            "choices2": [
+                "Oui",
+                "Non",
+                "Uniquement pour les balises spécifiques"
+            ],
+            "answer2": "Oui"
+        }
+    ],
+    "summary": "La méthode Element.getElementsByTagName() retourne une liste live des éléments portant le nom de balise spécifié, excluant l'élément lui-même, et mise à jour automatiquement en cas de modifications du DOM. Dans les documents HTML, les noms de balises sont convertis en minuscules. Pour les éléments SVG, il est recommandé d'utiliser getElementsByTagNameNS. Cette méthode est similaire à Document.getElementsByTagName(), mais limitée aux descendants de l'élément spécifié."
+}
 
 function createSummary(response) {
     
@@ -36,13 +67,14 @@ function createSummary(response) {
 
     summarySection.appendChild(summaryContentContainer)
     summarySection.appendChild(takeQuizButon)
+    console.log(response.summary)
     summaryContentContainer.innerText = response.summary
     takeQuizButon.innerText = 'Take Quiz'
 
     takeQuizButon.addEventListener("click", () => {
           document.getElementById("quiz-section").classList.remove("hidden");
           document.querySelector(".quiz-button").classList.add("hidden");
-          createQuiz(responseTest);
+          createQuiz(response);
       });
 }
 
@@ -104,5 +136,5 @@ document.getElementById("quiz-form").addEventListener("submit", (event) => {
     console.log('quizzform');
     
     alert("Quiz submitted! ");
-    countScore(responseTest);
+    countScore(aiResponseJSON);
   });

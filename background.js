@@ -19,6 +19,6 @@ chrome.contextMenus.onClicked.addListener((clickData) =>{
         summarizedText = selectedText
         console.log(summarizeText)
         // aiResponse = await getAIResponse(summarizedText)
-        createSummary(responseTest)
+        // createSummary(responseTest)
     }
 })
