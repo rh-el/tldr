@@ -1,7 +1,7 @@
-const apiKey = ''; // Remplacez par votre clé API OpenAI
+const apiKey = '';
 
 let summarizedText = '';
-let aiReponse;
+let aiResponse;
 
 const url = 'https://api.openai.com/v1/chat/completions';
 const requestedFormat = "{'questions': [{'question0': 'question0', 'choices0': [ 'choice0', 'choice1', 'choice2'], 'answer0': 'answer0'}], 'summary': 'summary'}"
