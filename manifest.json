@@ -17,7 +17,7 @@
     ],
 
     "side_panel": {
-      "default_path": "popup.html"
+      "default_path": "sidepanel.html"
     },
 
     "background": {
@@ -37,7 +37,7 @@
 
     "web_accessible_resources": [
       {
-        "resources": ["popup.html", "script.js"],
+        "resources": ["sidepanel.html", "script.js"],
         "matches": ["<all_urls>", "http://*/*", "https://*/*"]
       }
     ]

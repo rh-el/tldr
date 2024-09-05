@@ -21,37 +21,6 @@ const responseTest = {
 }
 
 
-function createQuiz(response) {
-
-    document.getElementById('summary-section').classList.add('hidden')
-
-    const quizForm = document.getElementById("quiz-form");
-    for (let i = 0; i < response.questions.length; i++) {
-        let quizItem = document.createElement("div");
-        quizItem.classList.add("quiz-item");
-        let quizQuestion = document.createElement("p");
-        quizQuestion.classList.add("quiz-question");
-        quizQuestion.innerHTML = response.questions[i][`question${i}`];
-        quizItem.appendChild(quizQuestion);
-    
-        for (let j = 0; j < response.questions[i][`choices${i}`].length; j++){
-            let quizRow = document.createElement("div");
-            quizRow.classList.add("quiz-row");
-            let radioButtonSelector = document.createElement("input");
-            radioButtonSelector.setAttribute("type", "radio");
-            radioButtonSelector.setAttribute("name", `choices${i}`);
-            radioButtonSelector.setAttribute("id", `option${j}`);
-            quizRow.appendChild(radioButtonSelector);
-            let quizChoice = document.createElement("label");
-            quizChoice.setAttribute("for", `option${j}`);
-            quizChoice.innerHTML = response.questions[i][`choices${i}`][j];
-            quizRow.appendChild(quizChoice);
-            quizItem.appendChild(quizRow);
-        }
-        quizForm.appendChild(quizItem);
-    }
-}
-
 
 function createSummary(response) {
     
@@ -78,3 +47,62 @@ function createSummary(response) {
 }
 
 
+function createQuiz(response) {
+    const quizItems = document.getElementById("quiz-items");
+    document.getElementById('summary-section').classList.add('hidden')
+    for (let i = 0; i < response.questions.length; i++) {
+        let quizItem = document.createElement("div");
+        quizItem.classList.add("quiz-item");
+        let quizQuestion = document.createElement("p");
+        quizQuestion.classList.add("quiz-question");
+        quizQuestion.innerHTML = response.questions[i][`question${i}`];
+        quizItem.appendChild(quizQuestion);
+    
+        for (let j = 0; j < response.questions[i][`choices${i}`].length; j++){
+            let quizRow = document.createElement("div");
+            quizRow.classList.add("quiz-row");
+            let radioButtonSelector = document.createElement("input");
+            radioButtonSelector.setAttribute("type", "radio");
+            radioButtonSelector.setAttribute("name", `choices${i}`);
+            radioButtonSelector.setAttribute("id", `option${i}${j}`);
+            quizRow.appendChild(radioButtonSelector);
+            let quizChoice = document.createElement("label");
+            quizChoice.setAttribute("for", `option${i}${j}`);
+            quizChoice.innerHTML = response.questions[i][`choices${i}`][j];
+            quizRow.appendChild(quizChoice);
+            quizItem.appendChild(quizRow);
+        }
+        quizItems.appendChild(quizItem);
+    }
+}
+
+
+
+
+function countScore (response) {
+    let items = document.querySelectorAll(".quiz-item");
+    let maxScore = items.length;
+    let userScore = 0;
+    for (let i = 0; i < items.length; i++) {
+      let buttons = document.getElementsByName(`choices${i}`);
+      for (let j = 0; j < buttons.length; j++) {
+        if (buttons[j].checked) {
+          let userAnswer = document.querySelector(`label[for='${buttons[j].id}']`).textContent;
+          if (userAnswer === response.questions[i][`answer${i}`])
+          userScore += 1;
+        }
+      }
+    }
+  console.log(`Score: ${userScore}/${maxScore}`);
+  }
+
+
+
+  
+document.getElementById("quiz-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log('quizzform');
+    
+    alert("Quiz submitted! ");
+    countScore(responseTest);
+  });

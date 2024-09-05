@@ -27,7 +27,6 @@ function formatRequestBody(str) {
     frequency_penalty: 0,
     presence_penalty: 0
   };
-  console.log(requestBody)
   return requestBody
 }
 
@@ -51,8 +50,3 @@ async function getAIResponse(textFromDom) {
         console.error('Error:', error);
     }
 }
-
-document.getElementById("summary-button").addEventListener('click', () => {
-  // console.log(summarizeText)
-  // console.log()
-})
