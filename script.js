@@ -12,10 +12,10 @@ document.getElementById("quiz-button").addEventListener("click", () => {
 });
 
 document.getElementById("quiz-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert("Quiz submitted! ");
+  event.preventDefault();
+  alert("Quiz submitted! ");
+  countScore(responseTest);
 });
-
 
 
 let responseTest = {
@@ -52,32 +52,46 @@ let responseTest = {
 
 
 function createQuiz (response) {
-    const quizForm = document.getElementById("quiz-form");
+    const quizItems = document.getElementById("quiz-items");
     for (let i = 0; i < response.questions.length; i++) {
         let quizItem = document.createElement("div");
         quizItem.classList.add("quiz-item");
         let quizQuestion = document.createElement("p");
         quizQuestion.classList.add("quiz-question");
-        quizQuestion.innerHTML = response.questions[i][`question${[i]}`];
+        quizQuestion.innerHTML = response.questions[i][`question${i}`];
         quizItem.appendChild(quizQuestion);
     
-        for (let j = 0; j < response.questions[i][`choices${[i]}`].length; j++){
+        for (let j = 0; j < response.questions[i][`choices${i}`].length; j++){
             let quizRow = document.createElement("div");
             quizRow.classList.add("quiz-row");
             let quizButton = document.createElement("input");
             quizButton.setAttribute("type", "radio");
             quizButton.setAttribute("name", `choices${i}`);
-            quizButton.setAttribute("id", `option${j}`);
+            quizButton.setAttribute("id", `option${i}${j}`);
             quizRow.appendChild(quizButton);
             let quizChoice = document.createElement("label");
-            quizChoice.setAttribute("for", `option${j}`);
-            quizChoice.innerHTML = response.questions[i][`choices${[i]}`][j];
+            quizChoice.setAttribute("for", `option${i}${j}`);
+            quizChoice.innerHTML = response.questions[i][`choices${i}`][j];
             quizRow.appendChild(quizChoice);
             quizItem.appendChild(quizRow);
         }
-        quizForm.appendChild(quizItem);
+        quizItems.appendChild(quizItem);
     }
 }
-document.addEventListener("selectionchange", () => {
-    // getSelectedText();
-})
+
+function countScore (response) {
+  let items = document.querySelectorAll(".quiz-item");
+  let maxScore = items.length;
+  let userScore = 0;
+  for (let i = 0; i < items.length; i++) {
+    let buttons = document.getElementsByName(`choices${i}`);
+    for (let j = 0; j < buttons.length; j++) {
+      if (buttons[j].checked) {
+        let userAnswer = document.querySelector(`label[for='${buttons[j].id}']`).textContent;
+        if (userAnswer === response.questions[i][`answer${i}`])
+        userScore += 1;
+      }
+    }
+  }
+console.log(`Score: ${userScore}/${maxScore}`);
+}

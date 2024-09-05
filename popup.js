@@ -18,44 +18,6 @@ const getSelectedText = () => {
 }
 
 
-
-// function extractContents(document) {
-//     const contents = [];
-
-//     const articleContent = document.querySelectorAll('article')
-//     console.log(articleContent);
-    
-//     articleContent.forEach(element => {
-//         console.log(element)
-//     })
-//         const tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol'];
-    
-//         tags.forEach(tag => {
-//             const elements = articleContent.querySelectorAll(tag);
-//             elements.forEach(element => {
-    
-                            
-//                     if (tag === 'ul' || tag === 'ol') {
-//                         const listItems = element.querySelectorAll('li');
-                        
-//                         listItems.forEach(item => {
-//                             if (item.innerText.split(' ').length > 3) {
-//                                 contents.push(item.textContent.trim());
-//                             } 
-//                         });
-//                     } else {
-//                         contents.push(element.textContent.trim());
-//                     }
-//                 }
-    
-//             )
-//         });
-//     return contents;
-// };
-
-
-
-
 function extractContents(document) {
     const contents = [];
 
@@ -67,31 +29,6 @@ function extractContents(document) {
     // console.log(contents)
     return contents;
 };
-
-
-
-// let contents = []
-// function extractContents(document, i) {
-//     const articleContent = document.querySelectorAll('article')
-//     console.log(articleContent[i])
-
-//     if (index >= articleContent.length) {
-//         console.log(contents)
-//         return
-//     }
-//     if (articleContent[i].childNodes.) {
-//         extractContents(document[i].childNodes, 0)
-//     }
-//     if (articleContent.childNodes.length == 0) {
-//         contents.push(articleContent.textContent)
-//     }
-//     i++
-//     extractContents(articleContent, i)
-
-
-//     // return contents;
-// };
-
 
 
 
