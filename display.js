@@ -87,7 +87,7 @@ function createQuiz(response) {
         quizItem.classList.add("quiz-item");
         let quizQuestion = document.createElement("p");
         quizQuestion.classList.add("quiz-question");
-        quizQuestion.innerHTML = response.questions[i][`question${i}`];
+        quizQuestion.innerText = response.questions[i][`question${i}`];
         quizItem.appendChild(quizQuestion);
     
         for (let j = 0; j < response.questions[i][`choices${i}`].length; j++){
@@ -100,7 +100,7 @@ function createQuiz(response) {
             quizRow.appendChild(radioButtonSelector);
             let quizChoice = document.createElement("label");
             quizChoice.setAttribute("for", `option${i}${j}`);
-            quizChoice.innerHTML = response.questions[i][`choices${i}`][j];
+            quizChoice.innerText = response.questions[i][`choices${i}`][j];
             quizRow.appendChild(quizChoice);
             quizItem.appendChild(quizRow);
         }
@@ -108,15 +108,7 @@ function createQuiz(response) {
 
 
     }
-    const storeButton = document.createElement("button")
-    storeButton.innerText = 'Store summary / quiz'
-    storeButton.classList.add('store-button')
-    quizItems.appendChild(storeButton)
 
-
-    storeButton.addEventListener('click', () => {
-      storeElement(aiResponseJSON)
-    })
 }
 
 
@@ -138,9 +130,36 @@ function countScore (response) {
     }
     const score = `Score: ${userScore}/${maxScore}`
     console.log(score);
+    displayScore(score)
     return score
-  }
+}
 
+
+function displayScore(score) {
+  if (document.querySelector('.score')) {
+    document.querySelector('.score').innerText = score
+  } else {
+    const scoreElement = document.createElement('h2')
+    scoreElement.innerText = score
+    scoreElement.classList.add('score')
+    document.getElementById("quiz-section").appendChild(scoreElement)
+  }
+    
+}
+
+
+function createStoreButton() {
+  if (!document.querySelector('.store-button')) {
+    const storeButton = document.createElement("button")
+    storeButton.innerText = 'Store summary / quiz'
+    storeButton.classList.add('store-button')
+    document.getElementById("quiz-section").appendChild(storeButton)
+  
+    storeButton.addEventListener('click', () => {
+      storeElement(aiResponseJSON)
+    })
+  }
+}
 
 
   
@@ -149,6 +168,8 @@ document.getElementById("quiz-form").addEventListener("submit", (event) => {
   if (event.submitter.id === "submit-button") {
     console.log('quizzform');
     alert("Quiz submitted! ");
+
     countScore(aiResponseJSON); 
+    createStoreButton()
   }
 });
