@@ -118,6 +118,7 @@ function countScore (response) {
     let items = document.querySelectorAll(".quiz-item");
     let maxScore = items.length;
     let userScore = 0;
+    console.log(response)
     for (let i = 0; i < items.length; i++) {
       let buttons = document.getElementsByName(`choices${i}`);
       for (let j = 0; j < buttons.length; j++) {
@@ -167,8 +168,7 @@ document.getElementById("quiz-form").addEventListener("submit", (event) => {
   event.preventDefault();
   if (event.submitter.id === "submit-button") {
     console.log('quizzform');
-    alert("Quiz submitted! ");
-
+    console.log(aiResponseJSON)
     countScore(aiResponseJSON); 
     createStoreButton()
   }
