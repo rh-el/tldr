@@ -149,6 +149,22 @@ document.getElementById("quiz-form").addEventListener("submit", (event) => {
   if (event.submitter.id === "submit-button") {
     console.log('quizzform');
     alert("Quiz submitted! ");
+<<<<<<< HEAD
     countScore(aiResponseJSON); 
   }
 });
+=======
+<<<<<<< HEAD
+    countScore(aiResponseJSON);
+    localStorage.setItem('https://www.coucou.fr', JSON.stringify({'summary': 'blablabla', 'note': '3/3'}));
+    localStorage.setItem('https://www.bonjour.fr', JSON.stringify({'summary': 'blablabla', 'note': '2/3'}));
+    localStorage.setItem('https://www.hello.fr', JSON.stringify({'summary': 'blablabla', 'note': '0/3'}));
+    localStorage.setItem('https://www.hi.fr', JSON.stringify({'summary': 'blablabla', 'note': '3/3'}));
+    localStorage.setItem('https://www.yo.fr', JSON.stringify({'summary': 'blablabla', 'note': '1/3'}));
+  });
+=======
+    countScore(aiResponseJSON); 
+  }
+});
+>>>>>>> 0862a1c (storage)
+>>>>>>> 98aa833 (blablabla)
