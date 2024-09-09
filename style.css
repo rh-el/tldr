@@ -209,3 +209,39 @@ body.light-theme input:checked + .slider {
 body.light-theme input:checked + .slider:before {
     transform: translateX(24px); /* moves right */
 }
+
+.main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.dashboard {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-history {
+    margin: 3rem;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+}
+
+.history-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 10rem;
+    box-shadow: 5px 5px 5px#a1a8b0;
+    border-radius: 25px;
+
+}
