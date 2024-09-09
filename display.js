@@ -105,7 +105,18 @@ function createQuiz(response) {
             quizItem.appendChild(quizRow);
         }
         quizItems.appendChild(quizItem);
+
+
     }
+    const storeButton = document.createElement("button")
+    storeButton.innerText = 'Store summary / quiz'
+    storeButton.classList.add('store-button')
+    quizItems.appendChild(storeButton)
+
+
+    storeButton.addEventListener('click', () => {
+      storeElement(aiResponseJSON)
+    })
 }
 
 
@@ -125,16 +136,19 @@ function countScore (response) {
         }
       }
     }
-  console.log(`Score: ${userScore}/${maxScore}`);
+    const score = `Score: ${userScore}/${maxScore}`
+    console.log(score);
+    return score
   }
 
 
 
   
 document.getElementById("quiz-form").addEventListener("submit", (event) => {
-    event.preventDefault();
+  event.preventDefault();
+  if (event.submitter.id === "submit-button") {
     console.log('quizzform');
-    
     alert("Quiz submitted! ");
-    countScore(aiResponseJSON);
-  });
+    countScore(aiResponseJSON); 
+  }
+});

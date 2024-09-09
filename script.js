@@ -21,11 +21,9 @@ function extractContents(document) {
 async function fetchAPI() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.scripting.executeScript({target: {tabId: tabs[0].id}, function: () => extractContents(document)},
-        async (results) => {
-            // console.log(results[0].result);                        
+        async (results) => {                      
             const aiResponse = await getAIResponse(results[0].result)
             aiResponseJSON = JSON.parse(aiResponse);
-            console.log(aiResponseJSON)
             createSummary(aiResponseJSON)
         }
       );
