@@ -7,7 +7,12 @@ try {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.scripting.executeScript({target: {tabId: tabs[0].id}, function: () => checkArticle(document)},
                 (results) => {
-                    results[0].result ? fetchAPI() : alert('No article found on this page...')
+                    if (results[0].result) {
+                        fetchAPI()
+                        showLoader()
+                    } else {
+                        alert('No article found on this page...')
+                    }
                 }
             )
         })
@@ -34,12 +39,6 @@ function hideLoader() {
     dashboardBtn.classList.remove('hidden'); 
 }
 
-// EventListener for button click
-btn.addEventListener('click', () => {
-    showLoader(); 
-    fetchAPI(); 
-});
-
 function extractContents(document) {
     const articleContent = document.querySelectorAll('article')[0].textContent;
     return articleContent;
@@ -50,12 +49,12 @@ async function fetchAPI() {
         chrome.scripting.executeScript(
             {
                 target: {tabId: tabs[0].id},
-                function: extractContents
+                function: () => extractContents(document)
             },
             async (results) => {  
                 try {
                     const aiResponse = await getAIResponse(results[0].result);
-                    const aiResponseJSON = JSON.parse(aiResponse);
+                    aiResponseJSON = JSON.parse(aiResponse);
                     createSummary(aiResponseJSON);
                 } catch (error) {
                     console.error('Error fetching AI response:', error);
