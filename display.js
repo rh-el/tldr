@@ -68,8 +68,12 @@ function createSummary(response) {
 
     summarySection.appendChild(summaryContentContainer)
     summarySection.appendChild(takeQuizButon)
-    console.log(response.summary)
-    summaryContentContainer.innerText = response.summary
+
+    const formattedContent = response.summary.split('.').join('.\n')
+    console.log("formattedcontent " + formattedContent)
+
+
+    summaryContentContainer.innerText = formattedContent
     takeQuizButon.innerText = 'Take Quiz'
 
     takeQuizButon.addEventListener("click", () => {
