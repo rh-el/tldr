@@ -149,23 +149,24 @@ function displayScore(score) {
     scoreElement.innerText = score
     scoreElement.classList.add('score')
     document.getElementById("quiz-section").appendChild(scoreElement)
+    scoreElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
     
 }
 
 
-function createStoreButton() {
-  if (!document.querySelector('.store-button')) {
-    const storeButton = document.createElement("button")
-    storeButton.innerText = 'Store summary / quiz'
-    storeButton.classList.add('store-button')
-    document.getElementById("quiz-section").appendChild(storeButton)
+// function createStoreButton() {
+//   if (!document.querySelector('.store-button')) {
+//     const storeButton = document.createElement("button")
+//     storeButton.innerText = 'Store summary / quiz'
+//     storeButton.classList.add('store-button')
+//     document.getElementById("quiz-section").appendChild(storeButton)
   
-    storeButton.addEventListener('click', () => {
-      storeElement(aiResponseJSON)
-    })
-  }
-}
+//     storeButton.addEventListener('click', () => {
+//       storeElement(aiResponseJSON)
+//     })
+//   }
+// }
 
 
   
@@ -175,6 +176,7 @@ document.getElementById("quiz-form").addEventListener("submit", (event) => {
     console.log('quizzform');
     console.log(aiResponseJSON)
     countScore(aiResponseJSON); 
-    createStoreButton()
+    // createStoreButton()
+    storeElement(aiResponseJSON)
   }
 });

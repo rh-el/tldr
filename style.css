@@ -221,6 +221,7 @@ form button[type="submit"]:hover {
     /* position: absolute; */
     top: 20px; 
     right: 20px;
+    z-index: 1;
 }
 
 
@@ -318,6 +319,11 @@ body.light-theme input:checked + .slider:before {
 
 }
 
+.title-section {
+    width: 100%;
+    height: 60%;
+}
+
 .front, .back {
     height: 100%;
     width: 100%;
@@ -378,4 +384,9 @@ body.light-theme input:checked + .slider:before {
 
 .hidden {
     display: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
