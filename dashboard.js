@@ -27,6 +27,8 @@ function updateDashboard() {
         let itemUrl = document.createElement('p');
         itemUrl.classList.add('item-url');
         itemUrl.innerHTML = `<a href='${quizData.url}'>${element}</a>`;
+        let titleSection = document.createElement('div');
+        titleSection.classList.add('title-section');
         let itemScore = document.createElement('p');
         itemScore.classList.add('item-score');
         itemScore.innerHTML = `${quizData.score}`;
@@ -35,7 +37,8 @@ function updateDashboard() {
         viewSummary.addEventListener('click', (event) => {
             event.target.parentElement.parentElement.style.transform = 'rotateY(180deg)'
         });
-        front.appendChild(itemUrl);
+        titleSection.appendChild(itemUrl);
+        front.appendChild(titleSection);
         front.appendChild(itemScore);
         front.appendChild(viewSummary);
         summarySection.appendChild(itemSummary);
