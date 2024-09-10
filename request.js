@@ -1,4 +1,4 @@
-const apiKey = '';
+const apiKey = getApiKey();
 
 let aiResponseJSON;
 let summarizedText = '';

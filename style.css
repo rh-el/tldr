@@ -137,11 +137,28 @@ button.orange {
     gap: 0.5rem; 
 }
 
+.quiz-row [type="radio"] {
+    display:none;
+}
+
+.quiz-row label {
+    display: block;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out 0.1s;
+}
+
+.quiz-row label:hover {
+    border: white 1px solid;
+
+}
+
 
 form button[type="submit"] {
     background-color: var(--ternary); 
     color: white; 
 }
+
 
 form button[type="submit"]:hover {
     background-color: var(--secondary);
