@@ -57,7 +57,8 @@ function createSummary(response) {
     
     const summarySection = document.getElementById('summary-section')
     summarySection.classList.remove('hidden')
-    document.getElementById("summary-button").classList.add("hidden");
+    const summaryButton = document.getElementById("summary-button")
+    summaryButton.style.display = "none";
     
     const summaryContentContainer = document.createElement('div')
     summaryContentContainer.classList.add('summary-content')
