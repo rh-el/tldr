@@ -230,20 +230,55 @@ body.light-theme input:checked + .slider:before {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33% 33% 33%;
     gap: 1rem;
 }
 
 .history-item {
+    width: 100%;
+    height: 500px;
+    border-radius: 25px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style : preserve-3d;
+
+}
+
+.front, .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: rgb(27, 27, 27);
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+.front {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: 10rem;
-    box-shadow: 5px 5px 5px#a1a8b0;
-    border-radius: 25px;
+}
 
+.back {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    overflow: scroll;
+    transform: rotateY(180deg);
+}
+
+.summary-section{
+    width: 100%;
+    height: 80%;
+    overflow: scroll;
 }
 
 .loader {
