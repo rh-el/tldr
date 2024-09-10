@@ -74,10 +74,10 @@ async function fetchAPI() {
             },
             async (results) => {  
                 try {
-                    // const aiResponse = await getAIResponse(results[0].result);
-                    // aiResponseJSON = JSON.parse(aiResponse);
-                    // createSummary(aiResponseJSON);
-                    createSummary(testObj);
+                    const aiResponse = await getAIResponse(results[0].result);
+                    aiResponseJSON = JSON.parse(aiResponse);
+                    createSummary(aiResponseJSON);
+                    // createSummary(testObj);
                 } catch (error) {
                     console.error('Error fetching AI response:', error);
                 } finally {

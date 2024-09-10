@@ -17,23 +17,23 @@ function updateDashboard() {
         summarySection.classList.add('summary-section');
         let itemSummary = document.createElement('p');
         itemSummary.classList.add('item-summary');
-        itemSummary.innerHTML = `Summary: ${quizData.summary}`;
+        itemSummary.innerText = `Summary: ${quizData.summary}`;
         let backButton = document.createElement('button');
-        backButton.innerHTML = "Back";
+        backButton.innerText = "Back";
         backButton.addEventListener('click', (event) => {
             event.target.parentElement.parentElement.style.transform = 'rotateY(0)'
             console.log(event);
         });
         let itemUrl = document.createElement('p');
         itemUrl.classList.add('item-url');
-        itemUrl.innerHTML = `<a href='${quizData.url}'>${element}</a>`;
+        itemUrl.innerText = `<a href='${quizData.url}' target='_blank'>${element}</a>`;
         let titleSection = document.createElement('div');
         titleSection.classList.add('title-section');
         let itemScore = document.createElement('p');
         itemScore.classList.add('item-score');
-        itemScore.innerHTML = `${quizData.score}`;
+        itemScore.innerText = `${quizData.score}`;
         let viewSummary = document.createElement('button');
-        viewSummary.innerHTML = "View summary";
+        viewSummary.innerText = "View summary";
         viewSummary.addEventListener('click', (event) => {
             event.target.parentElement.parentElement.style.transform = 'rotateY(180deg)'
         });
