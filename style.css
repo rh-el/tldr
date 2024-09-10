@@ -46,17 +46,18 @@ body {
     font-size: 18px;
     line-height: 1.6; 
     display: flex; 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 100vh; 
 
     padding: 20px; 
     transition: background-color 0.3s, color 0.3s; 
+
 }
 
 
 .container {
-    width: 900px; 
+    width: 100%;
     padding: 60px 40px; 
     background-color: var(--container-bg); 
     border-radius: 15px; 
@@ -113,7 +114,7 @@ button {
     color: var(--text-color); 
     border: 2px solid var(--button-border-color); 
     border-radius: 50px; 
-    transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    transition: background-color 0.1s, border-color 0.1s, transform 0.1s, box-shadow 0.1s; 
 }
 
 
@@ -149,7 +150,7 @@ button.dashboard {
     border-radius: 8px;
     padding: 15px 20px;
     margin-top: 40px;
-    transition: transform 0.3s ease, background-color 0.3s;
+    transition: transform 0.1s ease, background-color 0.1s;
 }
 
 button.dashboard:hover {
@@ -160,6 +161,10 @@ button.dashboard:hover {
 
 .quiz-item {
     margin: 25px 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem; 
 }
 
 .quiz-question {
@@ -176,7 +181,7 @@ button.dashboard:hover {
 .quiz-row {
     display: flex; 
     align-items: baseline;
-    gap: 0.5rem; 
+    font-size: small;
 }
 
 .quiz-row [type="radio"] {
@@ -185,16 +190,20 @@ button.dashboard:hover {
 
 .quiz-row label {
     display: block;
-    padding: 0.5rem;
+    padding: 1rem;
     cursor: pointer;
-    transition: 0.2s ease-in-out 0.1s;
+    width: 100%;
+    border-radius: 50px;
+    border: white 2px solid;
 }
 
 .quiz-row label:hover {
-    border: white 1px solid;
-
+    border: var(--button-border-color) 2px solid;
 }
 
+.quiz-row [type="radio"]:checked ~ label {
+    border: var(--button-border-color) 2px solid;
+}
 
 form button[type="submit"] {
     background-color: var(--ternary); 
@@ -236,7 +245,7 @@ form button[type="submit"]:hover {
     right: 0;
     bottom: 0;
     background-color: #ccc; 
-    transition: 0.4s; 
+    transition: 0.2s; 
     border-radius: 25px; /* round */
 }
 
@@ -249,7 +258,7 @@ form button[type="submit"]:hover {
     left: 4px;
     bottom: 2px;
     background-color: white; 
-    transition: 0.4s;
+    transition: 0.2s;
     border-radius: 50%; 
 }
 
@@ -305,7 +314,7 @@ body.light-theme input:checked + .slider:before {
     height: 100%;
     width: 100%;
     position: relative;
-    transition: transform 1500ms;
+    transition: transform 500ms;
     transform-style : preserve-3d;
 
 }
@@ -347,6 +356,10 @@ body.light-theme input:checked + .slider:before {
     overflow: scroll;
 }
 
+.summary-content {
+    text-align: left;
+    font-size:medium;
+}
 
 .loader {
     border: 8px solid #f3f3f3; 
