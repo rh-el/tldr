@@ -26,7 +26,7 @@ function updateDashboard() {
         });
         let itemUrl = document.createElement('p');
         itemUrl.classList.add('item-url');
-        itemUrl.innerHTML = `<a href='${element}' target='_blank'>Page Link</a>`;
+        itemUrl.innerHTML = `<a href='${quizData.url}'>${element}</a>`;
         let itemScore = document.createElement('p');
         itemScore.classList.add('item-score');
         itemScore.innerHTML = `${quizData.score}`;
