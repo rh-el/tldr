@@ -438,3 +438,21 @@ body.light-theme input:checked + .slider:before {
 a {
     text-decoration: none;
 }
+
+.history-item {
+    position: relative; 
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
