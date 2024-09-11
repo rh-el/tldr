@@ -119,26 +119,35 @@ function createQuiz(response) {
 
 
 
-function countScore (response) {
-    let items = document.querySelectorAll(".quiz-item");
-    let maxScore = items.length;
-    let userScore = 0;
-    console.log(response)
-    for (let i = 0; i < items.length; i++) {
-      let buttons = document.getElementsByName(`choices${i}`);
-      for (let j = 0; j < buttons.length; j++) {
-        if (buttons[j].checked) {
-          let userAnswer = document.querySelector(`label[for='${buttons[j].id}']`).textContent;
-          if (userAnswer === response.questions[i][`answer${i}`])
+function countScore(response) {
+  let items = document.querySelectorAll(".quiz-item");
+  let maxScore = items.length;
+  let userScore = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    let buttons = document.getElementsByName(`choices${i}`);
+    for (let j = 0; j < buttons.length; j++) {
+      let quizChoice = document.querySelector(`label[for='${buttons[j].id}']`);
+      if (buttons[j].checked) {
+        let userAnswer = quizChoice.textContent;
+        if (userAnswer === response.questions[i][`answer${i}`]) {
           userScore += 1;
+          // green if correct
+          quizChoice.style.border = "3px solid green";
+        } else {
+          // red if false
+          quizChoice.style.border = "3px solid red";
         }
       }
     }
-    const score = `Score: ${userScore}/${maxScore}`
-    console.log(score);
-    displayScore(score)
-    return score
+  }
+
+  const score = `Score: ${userScore}/${maxScore}`;
+  console.log(score);
+  displayScore(score);
+  return score;
 }
+
 
 
 function displayScore(score) {

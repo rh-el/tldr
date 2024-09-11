@@ -1,45 +1,44 @@
 {
-    "manifest_version": 3,
-    "name": "Learning Extension",
-    "version": "1.1",
-    "description": "An extension that summarize your article for you and then quizzes you!",
-  
-    "action": {
-      "default_icon": "icon.png"
-    },
+  "manifest_version": 3,
+  "name": "Learning Extension",
+  "version": "1.1",
+  "description": "An extension that summarize your article for you and then quizzes you!",
 
-    "permissions": [
-      "activeTab",
-      "scripting",
-      "contextMenus",
-      "tabs",
-      "sidePanel"
-    ],
+  "action": {
+    "default_icon": "icon.png"
+  },
 
-    "side_panel": {
-      "default_path": "sidepanel.html"
-    },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "tabs",
+    "sidePanel"
+  ],
 
-    "background": {
-      "service_worker": "background.js"
-    },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
 
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>", "http://*/*", "https://*/*"],
-        "js": ["script.js"]
-      }
-    ],
+  "background": {
+    "service_worker": "background.js"
+  },
 
-    "host_permissions": [
-      "*://*/*"
-    ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>", "http://*/*", "https://*/*"],
+      "js": ["script.js"]
+    }
+  ],
 
-    "web_accessible_resources": [
-      {
-        "resources": ["sidepanel.html", "script.js"],
-        "matches": ["<all_urls>", "http://*/*", "https://*/*"]
-      }
-    ]
-  }
-  
+  "host_permissions": [
+    "*://*/*"
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["sidepanel.html", "script.js"],
+      "matches": ["<all_urls>", "http://*/*", "https://*/*"]
+    }
+  ]
+}
