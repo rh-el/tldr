@@ -2,10 +2,22 @@
   "manifest_version": 3,
   "name": "Learning Extension",
   "version": "1.2",
-  "description": "An extension that summarize your article for you and then quizzes you!",
+  "description": "An extension that summarizes your article for you and then quizzes you!",
 
   "action": {
-    "default_icon": "./assets/img/icon.png"
+    "default_icon": {
+      "16": "./assets/img/icon16.png",
+      "32": "./assets/img/icon32.png",
+      "48": "./assets/img/icon48.png",
+      "128": "./assets/img/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "./assets/img/icon16.png",
+    "32": "./assets/img/icon32.png",
+    "48": "./assets/img/icon48.png",
+    "128": "./assets/img/icon128.png"
   },
 
   "permissions": [
@@ -27,7 +39,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>", "http://*/*", "https://*/*"],
-      "js": ["./scripts/script.js", "./scripts/dashboard.js", "./scripts/display.js", "./scripts/request.js", "./scripts/storage.js", "./scripts/utilities.js"]
+      "js": [
+        "./scripts/script.js",
+        "./scripts/dashboard.js",
+        "./scripts/display.js",
+        "./scripts/request.js",
+        "./scripts/storage.js",
+        "./scripts/utilities.js"
+      ]
     }
   ],
 
