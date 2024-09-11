@@ -2,6 +2,32 @@ const btn = document.getElementById('summary-button');
 const dashboardBtn = document.getElementById('dashboard-button');
 const loader = document.querySelector('.loader');
 
+// const apiKey = getApiKey();
+let apiKey;
+
+const keyInput = document.getElementById('key-input')
+const keyButton = document.getElementById('key-button')
+const summaryButton = document.getElementById('summary-button')
+
+
+if (localStorage.apiKey) {
+    keyInput.value =  localStorage.getItem('apiKey')
+}
+
+
+keyButton.addEventListener('click', () => {
+  apiKey = keyInput.value
+  localStorage.setItem('apiKey', apiKey)
+  keyInput.style.display = 'none'
+  keyButton.style.display = 'none'
+  summaryButton.classList.remove('hidden')
+})
+
+
+
+
+
+
 try {
     btn.addEventListener('click', () => {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

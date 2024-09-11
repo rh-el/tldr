@@ -129,6 +129,22 @@ button {
     text-decoration: none;
 }
 
+#key-input {
+    outline: none;
+    width: 100%;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: large;
+}
+
+#key-input::selection {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
 #dashboard-button {
     margin-top: 0;
     margin-bottom: 0;
@@ -340,18 +356,17 @@ body.light-theme input:checked + .slider:before {
 .link-url {
     font-size: 3rem;
     font-weight: 700;
-    line-height: 3rem;
+    line-height: 4.2rem;
     color: var(--text-color);
     text-decoration: none;
-    /* transition-duration: 0.2s; */
-    transition: ease-in-out 0.2s;
+    transition-duration: 0.1s;
+
 }
 
+
 .link-url:hover{
+    background-color: var(--text-color);
     color: var(--bg-color);
-    -webkit-text-stroke-color: var(--text-color);
-    -webkit-text-stroke-width: 0.5px;
-    text-decoration: none;
 
 }
 

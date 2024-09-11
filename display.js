@@ -110,7 +110,7 @@ function createQuiz(response) {
             quizItem.appendChild(quizRow);
         }
         quizItems.appendChild(quizItem);
-
+        quizItems.scrollIntoView({behavior:'smooth', block:'start'});
 
     }
 
