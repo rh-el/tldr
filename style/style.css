@@ -297,9 +297,9 @@ button.dashboard:hover {
 }
 
 
-input:checked + .slider {
+/* input:checked + .slider {
     background-color: #4b0082; 
-}
+} */
 
 input:checked + .slider:before {
     transform: translateX(24px); /* move the circle right */
@@ -437,4 +437,32 @@ body.light-theme input:checked + .slider:before {
 
 a {
     text-decoration: none;
+}
+
+.history-item {
+    width: 100%;
+    min-height: 20rem;
+    overflow: scroll;
+    scrollbar-width: none;
+    border-radius: 25px;
+    border: var(--text-color) 1px solid;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 10px;
+    position: relative; 
+    transition-duration: 0.2s;
+}
+
+
+
+.delete-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
 }

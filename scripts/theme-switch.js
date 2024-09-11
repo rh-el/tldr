@@ -1,6 +1,4 @@
 const themeCheckbox = document.getElementById('theme-checkbox');
-const body = document.body;
-
 
 themeCheckbox.addEventListener('change', () => {
     if (themeCheckbox.checked) {

@@ -1,6 +1,4 @@
 
-let aiResponseJSON;
-let summarizedText = '';
 
 const url = 'https://api.openai.com/v1/chat/completions';
 const requestedFormat = '{"questions": [{"question0": "question0", "choices0": [ "choice0", "choice1", "choice2"], "answer0": "answer0"}], "summary": "summary"}'
@@ -30,7 +28,6 @@ function formatRequestBody(str) {
 
 async function getAIResponse(textFromDom) {
   const formattedRequestBody = formatRequestBody(textFromDom)
-  // console.log("formattedRequestBody: " + formattedRequestBody)
     try {
         const response = await fetch(url, {
           method: 'POST',
@@ -41,7 +38,6 @@ async function getAIResponse(textFromDom) {
           body: JSON.stringify(formattedRequestBody)
         });
         const data = await response.json();
-        // console.log(data);
         return data.choices[0].message.content
     } catch (error) {
         console.error('Error:', error);
