@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tl;dr</title>
-    <link rel="stylesheet" type="text/css" href="./style/style.css" />
-</head>
-<body>
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="theme-checkbox">
-            <input type="checkbox" id="theme-checkbox">
-            <span class="slider"></span>
-        </label>
-    </div>
-
-    <div class="container">
-        <h1>tl;dr</h1>
-        <span class="loader"></span>
-        <input type="text" id="key-input" placeholder="Enter your OpenAI API key"/>
-        <button id="key-button">Send Key</button>
-        <button id="summary-button" class="hidden">Show Summary</button>
-        <div id="summary-section" class="hidden">
-            <!-- <h2>Summary</h2> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tl;dr</title>
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    </head>
+    <body>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="theme-checkbox">
+                <input type="checkbox" id="theme-checkbox">
+                <span class="slider"></span>
+            </label>
         </div>
-        <div id="quiz-section" class="hidden">
-            <!-- <h2>Quiz</h2> -->
-            <form id="quiz-form">
-                <div id="quiz-items"></div>
-                <button id="submit-button" type="submit">Submit Quiz</button>
-            </form>
-        </div>
-        <a href="./dashboard.html" target="_blank"><button id="dashboard-button">Dashboard</button></a>
-    </div>
-    <script src="./scripts/utilities.js"></script>
-    <script src="./scripts/theme-switch.js"></script>
-    <script src="./scripts/request.js"></script>
-    <script src="./scripts/storage.js"></script>
-    <script src="./scripts/display.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/background.js"></script>
 
-</body>
+        <div class="container">
+            <h1>tl;dr</h1>
+            <span class="loader"></span>
+            <input type="text" id="key-input" placeholder="Enter your OpenAI API key"/>
+            <button id="key-button">Send Key</button>
+            <button id="summary-button" class="hidden">Show Summary</button>
+            <div id="summary-section" class="hidden">
+            </div>
+            <div id="quiz-section" class="hidden">
+                <form id="quiz-form">
+                    <div id="quiz-items"></div>
+                    <button id="submit-button" type="submit">Submit Quiz</button>
+                </form>
+            </div>
+            <a href="./dashboard.html" target="_blank"><button id="dashboard-button">Dashboard</button></a>
+        </div>
+        <script src="./scripts/utilities.js"></script>
+        <script src="./scripts/theme-switch.js"></script>
+        <script src="./scripts/request.js"></script>
+        <script src="./scripts/storage.js"></script>
+        <script src="./scripts/display.js"></script>
+        <script src="./scripts/script.js"></script>
+        <script src="./scripts/background.js"></script>
+
+    </body>
 </html>

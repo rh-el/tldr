@@ -24,10 +24,7 @@ function updateDashboard() {
             historyItem.appendChild(itemScore);
             quizHistory.appendChild(historyItem);
 
-            
         }
-
-
     })
 }
 

@@ -1,5 +1,3 @@
-
-
 if (localStorage.apiKey) {
     keyInput.value =  localStorage.getItem('apiKey')
 }

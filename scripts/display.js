@@ -38,12 +38,13 @@ function createQuiz(response) {
   
       for (let j = 0; j < response.questions[i][`choices${i}`].length; j++){
           let quizRow = createItem('div', 'quiz-row')
-          let radioButtonSelector = document.createElement("input");
 
+          let radioButtonSelector = document.createElement("input");
           radioButtonSelector.setAttribute("type", "radio");
           radioButtonSelector.setAttribute("name", `choices${i}`);
           radioButtonSelector.setAttribute("id", `option${i}${j}`);
           quizRow.appendChild(radioButtonSelector);
+
           let quizChoice = document.createElement("label");
           quizChoice.setAttribute("for", `option${i}${j}`);
           quizChoice.innerText = response.questions[i][`choices${i}`][j];
@@ -92,13 +93,10 @@ function displayScore(score) {
   if (document.querySelector('.score')) {
     document.querySelector('.score').innerText = score
   } else {
-    const scoreElement = document.createElement('h2')
-    scoreElement.innerText = score
-    scoreElement.classList.add('score')
+    const scoreElement = createItem('h2', 'score', 'innerText', score)
     document.getElementById("quiz-section").appendChild(scoreElement)
     scoreElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
-    
 }
 
 
